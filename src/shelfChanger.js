@@ -1,22 +1,30 @@
 import React, { Component } from 'react'
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 
 class ShelfChanger extends Component {
   state = {
-  	detectSelectChange: ''
+    selectedOption: '',
+  }
+  handleChange = (selectedOption) => {
+    this.setState({ selectedOption });
+    console.log(`Selected: ${selectedOption.label}`);
   }
   render() {
+  	const { selectedOption } = this.state;
+  	const value = selectedOption && selectedOption.value;
+ 
     return (
-      <div className="shelf-changer">
-      <p>SELECT should be here</p>
-       	<select>
-      		<option value="none" disabled>Move it! ...</option>
-      		<option value="currentlyReading">Currently Reading</option>
-      		<option value="wantToRead">Want to Read</option>
-      		<option value="read">Read</option>
-      		<option value="none">None</option>
-      	</select>      
-      </div>
-    )
+      <Select
+        name="form-field-name"
+        value={value}
+        onChange={this.handleChange}
+        options={[
+          { value: 'one', label: 'One' },
+          { value: 'two', label: 'Two' },
+        ]}
+      />
+    );
   }
 }
 
