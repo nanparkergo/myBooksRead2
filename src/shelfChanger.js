@@ -12,7 +12,7 @@ class ShelfChanger extends Component {
   }
   render() {
   	const { selectedOption } = this.state;
-  	const value = selectedOption && selectedOption.value;
+  	const value = selectedOption && selectedOption.label;
  
     return (
       <Select
@@ -20,8 +20,10 @@ class ShelfChanger extends Component {
         value={value}
         onChange={this.handleChange}
         options={[
-          { value: 'one', label: 'One' },
-          { value: 'two', label: 'Two' },
+          { value: 'currentRead', label: 'currently reading' },
+          { value: 'wantRead', label: 'want to read' },
+      	  { value: 'read', label: 'read' },
+          { value: 'none', label: 'none' },
         ]}
       />
     );

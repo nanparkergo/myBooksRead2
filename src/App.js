@@ -4,6 +4,8 @@ import './App.css'
 import ListBooks from './listBooks'
 import SearchBooks from './searchBooks'
 import ReadingShelf from './readingShelf'
+import WantToReadShelf from './wantToReadShelf'
+import ReadShelf from './readShelf'
 
 // for each book returned from search, call Book component pass in returned array
 const returnedBooks = [
@@ -63,6 +65,8 @@ class BooksApp extends React.Component {
         ) : (
           <div>
           <ReadingShelf />
+          <WantToReadShelf />
+          <ReadShelf />
           <ListBooks returnedBooks={returnedBooks} /> 
          
           /*<div className="list-books">

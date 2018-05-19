@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 
 class ReadingShelf extends Component {
+   
 	render() {
+      const readingArray = ['']
     	return (
         <div>
-          <h1>Reading</h1>
+          <h2>Currently Reading</h2>
           {this.props.returnedBooks}          
         </div>
         )

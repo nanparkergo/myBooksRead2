@@ -6,8 +6,7 @@ import ShelfChanger from './shelfChanger'
  
 
 class ListBooks extends Component {
-  render() {
-    //console.log('Props', this.props)
+  render() {     
     return (
       <ol className='book-list'>
         {this.props.returnedBooks.map((returnedBook) => (
