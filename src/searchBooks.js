@@ -17,17 +17,21 @@ class SearchBooks extends Component {
   clearQuery = () => {
     this.updateQuery('')
   }
+  
   render() {     
     const { query } = this.state
 	const { returnedBooks } = this.props
-
-	// if search box empty, populate showingBooks with all returned books 
-	// else populate showingBooks with array filtered to only include books with query value in title  
+	 
 	const showingBooks = query === ''
 		? returnedBooks
 		: returnedBooks.filter((book) => (
         	book.title.toLowerCase().includes(query.toLowerCase())
         ))
+	const book = {
+  	title: 'Bible',
+    author: '',
+    cover: ''
+  } 
     return (
       <div className='list-books'>         
         <div className='search-box'>
@@ -60,9 +64,12 @@ class SearchBooks extends Component {
               <div className='book-details'>
                 <p>{returnedBook.title}</p>
                 <p>{returnedBook.authors}</p>
-              </div>
-			// assemble book object to send as props with shelfchanger
-              <ShelfChanger />
+              </div>			
+					book[title] = returnedBook.title;
+					book[author] = returnedBook.authors;
+					book[cover] = returnedBook.backgroundImage;
+			 
+              <ShelfChanger book={returnedBook.title} />
             </li>
           ))}
         </ol>

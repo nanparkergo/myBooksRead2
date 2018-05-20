@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Select from 'react-select';
 import 'react-select/dist/react-select.css';
+import SearchBooks from './searchBooks';
 
 class ShelfChanger extends Component {
   state = {
@@ -8,11 +9,12 @@ class ShelfChanger extends Component {
   }
   handleChange = (selectedOption) => {
     this.setState({ selectedOption });
-    console.log(`Selected: ${selectedOption.label}`);
+    console.log(`Selected: ${selectedOption.label}`);    
   }
   render() {
   	const { selectedOption } = this.state;
   	const value = selectedOption && selectedOption.label;
+	console.log("book", this.props);
  
     return (
       <Select
